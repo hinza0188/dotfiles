@@ -78,9 +78,10 @@ else
 fi
 source /usr/local/bin/virtualenvwrapper.sh
 
+# Defining environment variables for pyenv_root
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/yka8247/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yka8247/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/yka8247/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yka8247/google-cloud-sdk/completion.zsh.inc'; fi
