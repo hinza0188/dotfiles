@@ -67,8 +67,6 @@ source ~/.functions
 
 # set where virutal environments will live
 export WORKON_HOME=$HOME/.virtualenvs
-# ensure all new environments are isolated from the site-packages directory
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 # use the same directory for virtualenvs as virtualenvwrapper
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 # makes pip detect an active virtualenv and install to it
@@ -79,4 +77,11 @@ else
     echo "WARNING: Can't find virtualenvwrapper.sh"
 fi
 source /usr/local/bin/virtualenvwrapper.sh
+
+# Defining environment variables for pyenv_root
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
 
