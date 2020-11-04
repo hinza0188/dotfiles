@@ -45,6 +45,7 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="/usr/local/opt/python@2/bin:$PATH"
 # pyenv-virtualenvwrapper
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
 
 # php export from homebrew
@@ -76,7 +77,6 @@ if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
 else
     echo "WARNING: Can't find virtualenvwrapper.sh"
 fi
-source /usr/local/bin/virtualenvwrapper.sh
 
 # Defining environment variables for pyenv_root
 export PYENV_ROOT="$HOME/.pyenv"
