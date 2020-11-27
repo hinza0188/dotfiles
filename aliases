@@ -17,5 +17,3 @@ alias gs='git status'
 alias grv='git remote -v'
 alias topten='print -l -- ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 alias routine='brew update && brew upgrade && upgrade_oh_my_zsh'
-alias ec2='ssh -i "QO_TestServer.pem" ubuntu@ec2-15-164-225-147.ap-northeast-2.compute.amazonaws.com'
-
