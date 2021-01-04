@@ -35,12 +35,10 @@ export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/zlib/include"
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /opt/homebrew/opt/zlib/lib/pkgconfig"
 
 # PATH
-export PATH="/opt/homebrew/sbin:/opt/homebrew/bin:$PATH"
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="/opt/homebrew/opt/openssl/bin:$PATH"
-export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 # laravel excecutable locator
 export PATH="$PATH:$HOME/.composer/vendor/bin"
@@ -68,12 +66,11 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 # makes pip detect an active virtualenv and install to it
 export PIP_RESPECT_VIRTUALENV=true
-if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
-    source /usr/local/bin/virtualenvwrapper.sh
+if [[ -r /opt/homebrew/bin/virtualenvwrapper.sh ]]; then
+    source /opt/homebrew/bin/virtualenvwrapper.sh
 else
     echo "WARNING: Can't find virtualenvwrapper.sh"
 fi
-source /usr/local/bin/virtualenvwrapper.sh
 
 # Defining environment variables for pyenv_root
 export PYENV_ROOT="$HOME/.pyenv"
