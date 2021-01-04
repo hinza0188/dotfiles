@@ -29,27 +29,26 @@ set -o vi
 LSCOLORS=exfxcxdxbxegedabagacad
 export LSCOLORS
 
-# For compilers to find zlib you may need to set:
-export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
-export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
+# For compilers to find zlib 
+export LDFLAGS="${LDFLAGS} -L/opt/homebrew/opt/zlib/lib"
+export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/zlib/include"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /opt/homebrew/opt/zlib/lib/pkgconfig"
 
-# For pkg-config to find zlib you may need to set:
-export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
-
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# python export from homebrew
+# PATH
+export PATH="/opt/homebrew/sbin:/opt/homebrew/bin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$PATH"
+export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-# pyenv-virtualenvwrapper
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-export WORKON_HOME=$HOME/.virtualenvs
-
-# php export from homebrew
+export PATH="/opt/homebrew/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 # laravel excecutable locator
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+# pyenv-virtualenvwrapper
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+export WORKON_HOME=$HOME/.virtualenvs
+
 
 source $ZSH/oh-my-zsh.sh
 
