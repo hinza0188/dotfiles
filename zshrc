@@ -34,6 +34,11 @@ export LDFLAGS="${LDFLAGS} -L/opt/homebrew/opt/zlib/lib"
 export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/zlib/include"
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /opt/homebrew/opt/zlib/lib/pkgconfig"
 
+# For compilers to find bzip2
+export LDFLAGS="${LDFLAGS} -L/opt/homebrew/opt/bzip2/lib"
+export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/bzip2/include"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /opt/homebrew/opt/bzip2/lib/pkgconfig"
+
 # PATH
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:$PATH"
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
