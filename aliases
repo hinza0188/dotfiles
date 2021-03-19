@@ -17,5 +17,5 @@ alias gs='git status'
 alias grv='git remote -v'
 alias topten='print -l -- ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 alias routine='brew update && brew upgrade && upgrade_oh_my_zsh'
-alias ibrew='arch -x86_64 /usr/local/bin/brew'
+alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
 

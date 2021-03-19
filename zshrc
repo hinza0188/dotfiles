@@ -29,28 +29,39 @@ set -o vi
 LSCOLORS=exfxcxdxbxegedabagacad
 export LSCOLORS
 
-# PATH for Intel
+# EXPORTS FOR Intel
 export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
 export DPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/bzip2/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/bzip2/include"
+export PATH="/usr/local/opt/zlib/bin:$PATH"
+export PATH="/usr/local/opt/bzip2/bin:$PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$PATH"
+export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
+export VIRTUALENVWRAPPER_VIRTUALENV="/usr/local/bin/virtualenv"
 
-# For compilers to find zlib for m1 
+# EXPORTS FOR M1 
 #export LDFLAGS="${LDFLAGS} -L/opt/homebrew/opt/zlib/lib"
 #export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/zlib/include"
 #export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /opt/homebrew/opt/zlib/lib/pkgconfig"
-
-# For compilers to find bzip2 for m1
 #export LDFLAGS="${LDFLAGS} -L/opt/homebrew/opt/bzip2/lib"
 #export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/bzip2/include"
 #export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /opt/homebrew/opt/bzip2/lib/pkgconfig"
-
-# PATH for m1
 #export PATH="/opt/homebrew/bin:$PATH"
+#export PATH="/opt/homebrew/opt/zlib/bin:$PATH"
+#export PATH="/opt/homebrew/opt/bzip2/bin:$PATH"
 #export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 #export PATH="/opt/homebrew/opt/openssl/bin:$PATH"
+#export VIRTUALENVWRAPPER_PYTHON="/opt/homebrew/bin/python3"
+#export VIRTUALENVWRAPPER_VIRTUALENV="/opt/homebrew/bin/virtualenv"
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 
 # pyenv-virtualenvwrapper
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
@@ -77,6 +88,8 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 if [[ -r /opt/homebrew/bin/virtualenvwrapper.sh ]]; then
     source /opt/homebrew/bin/virtualenvwrapper.sh
+elif [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
+    source /usr/local/bin/virtualenvwrapper.sh
 else
     echo "WARNING: Can't find virtualenvwrapper.sh"
 fi
