@@ -36,7 +36,9 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
 export LDFLAGS="${LDFLAGS} -L/usr/local/opt/bzip2/lib"
 export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/bzip2/include"
 export PATH="/usr/local/opt/zlib/bin:$PATH"
-export PATH="/usr/local/opt/bzip2/bin:$PATH"
+export PATH="/usr/local/opt/node@14/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/node@14/lib"
+export CPPFLAGS="-I/usr/local/opt/node@14/include"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$PATH"
@@ -63,9 +65,6 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
-# pyenv-virtualenvwrapper
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-export WORKON_HOME=$HOME/.virtualenvs
 
 
 source $ZSH/oh-my-zsh.sh
@@ -94,12 +93,17 @@ else
     echo "WARNING: Can't find virtualenvwrapper.sh"
 fi
 
+# pyenv-virtualenvwrapper
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+export WORKON_HOME=$HOME/.virtualenvs
+
 # Defining environment variables for pyenv_root
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
+if coomand -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init --path)"
 fi
+
 if which pyenv-virtualenv-init > /dev/null; then 
     eval "$(pyenv virtualenv-init -)"; 
 fi
